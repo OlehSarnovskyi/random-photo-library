@@ -1,0 +1,21 @@
+:host {
+  display: block;
+}
+
+.photos-page__error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 32px 0;
+  color: var(--mat-sys-on-surface-variant);
+  text-align: center;
+
+  p {
+    margin: 0;
+  }
+}
+
+.photos-page__sentinel {
+  height: 1px;
+}
