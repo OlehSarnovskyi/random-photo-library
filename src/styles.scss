@@ -1,4 +1,6 @@
 @use '@angular/material' as mat;
+@use './styles/utilities';
+@use './styles/photo-tile';
 
 html {
   color-scheme: light dark;

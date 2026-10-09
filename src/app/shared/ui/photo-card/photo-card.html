@@ -1,0 +1,20 @@
+<img
+  class="photo-card__image"
+  [src]="src()"
+  [alt]="'Photo by ' + photo().author"
+  [width]="size.width"
+  [height]="size.height"
+  loading="lazy"
+  decoding="async"
+/>
+
+@if (favorite()) {
+  <span class="photo-card__badge">
+    <mat-icon>favorite</mat-icon>
+    <span class="visually-hidden">In favorites</span>
+  </span>
+}
+
+@if (showAuthor()) {
+  <span class="photo-card__caption">{{ photo().author }}</span>
+}

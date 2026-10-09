@@ -1,0 +1,42 @@
+:host {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: var(--mat-sys-corner-medium);
+  background: var(--mat-sys-surface-container-high);
+}
+
+// The width/height attributes reserve the 4:3 box before the image loads.
+.photo-card__image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.photo-card__badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--mat-sys-surface);
+  color: var(--mat-sys-error);
+  box-shadow: var(--mat-sys-level1);
+
+  mat-icon {
+    font-variation-settings: 'FILL' 1;
+  }
+}
+
+.photo-card__caption {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 24px 12px 8px;
+  color: #fff;
+  font: var(--mat-sys-label-large);
+  text-align: left;
+  background: linear-gradient(transparent, rgb(0 0 0 / 60%));
+}
