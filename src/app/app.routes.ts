@@ -20,4 +20,9 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./features/photo-detail/photo-detail-page').then((m) => m.PhotoDetailPage),
   },
+  {
+    path: '**',
+    title: `Page not found · ${APP_TITLE}`,
+    loadComponent: () => import('./features/not-found/not-found-page').then((m) => m.NotFoundPage),
+  },
 ];
