@@ -1,0 +1,33 @@
+<mat-toolbar class="header">
+  <nav class="header__nav" aria-label="Main">
+    <a
+      class="header__link"
+      [matButton]="photosLink.isActive ? 'tonal' : 'text'"
+      routerLink="/"
+      routerLinkActive="is-active"
+      #photosLink="routerLinkActive"
+      [routerLinkActiveOptions]="{ exact: true }"
+      ariaCurrentWhenActive="page"
+    >
+      <mat-icon>photo_library</mat-icon>
+      Photos
+    </a>
+
+    <a
+      class="header__link"
+      [matButton]="favoritesLink.isActive || onPhotoPage() ? 'tonal' : 'text'"
+      routerLink="/favorites"
+      routerLinkActive="is-active"
+      #favoritesLink="routerLinkActive"
+      ariaCurrentWhenActive="page"
+    >
+      <mat-icon>favorite</mat-icon>
+      Favorites
+      @if (favoritesCount() > 0) {
+        <span class="header__count">
+          {{ favoritesCount() }}<span class="visually-hidden"> saved</span>
+        </span>
+      }
+    </a>
+  </nav>
+</mat-toolbar>
