@@ -1,0 +1,25 @@
+@if (photo(); as photo) {
+  <figure class="photo-detail__figure">
+    <img
+      class="photo-detail__image"
+      [src]="imageUrl()"
+      [alt]="'Photo by ' + photo.author"
+      [width]="imageSize()?.width"
+      [height]="imageSize()?.height"
+    />
+    <figcaption class="photo-detail__caption">Photo by {{ photo.author }}</figcaption>
+  </figure>
+
+  <button matButton="outlined" type="button" (click)="remove(photo)">
+    <mat-icon>heart_minus</mat-icon>
+    Remove from favorites
+  </button>
+} @else {
+  <app-empty-state
+    icon="image_not_supported"
+    heading="Photo not found"
+    message="This photo is not in your favorites. It may have been removed."
+  >
+    <a matButton="filled" routerLink="/favorites">Go to favorites</a>
+  </app-empty-state>
+}

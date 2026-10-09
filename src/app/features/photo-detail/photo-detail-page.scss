@@ -1,0 +1,31 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.photo-detail__figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  margin: 0;
+}
+
+.photo-detail__image {
+  // `auto` overrides the width/height attributes so both limits scale the image proportionally.
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  // Leave room for the sticky header, caption and the action button.
+  max-height: calc(100dvh - 220px);
+  border-radius: var(--mat-sys-corner-medium);
+  background: var(--mat-sys-surface-container-high);
+}
+
+.photo-detail__caption {
+  color: var(--mat-sys-on-surface-variant);
+  font: var(--mat-sys-body-medium);
+}
