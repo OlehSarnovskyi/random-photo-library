@@ -1,0 +1,23 @@
+@if (favorites.count() > 0) {
+  <h1 class="visually-hidden">Favorites</h1>
+
+  <app-photo-grid>
+    @for (photo of favorites.favorites(); track photo.id) {
+      <a
+        class="photo-tile"
+        [routerLink]="['/photos', photo.id]"
+        [attr.aria-label]="'Open photo by ' + photo.author"
+      >
+        <app-photo-card [photo]="photo" [showAuthor]="true" />
+      </a>
+    }
+  </app-photo-grid>
+} @else {
+  <app-empty-state
+    icon="favorite"
+    heading="No favorites yet"
+    message="Click any photo in the stream to save it here."
+  >
+    <a matButton="filled" routerLink="/">Browse photos</a>
+  </app-empty-state>
+}

@@ -9,4 +9,9 @@ export const routes: Routes = [
     title: `Photos · ${APP_TITLE}`,
     loadComponent: () => import('./features/photos/photos-page').then((m) => m.PhotosPage),
   },
+  {
+    path: 'favorites',
+    title: `Favorites · ${APP_TITLE}`,
+    loadComponent: () => import('./features/favorites/favorites-page').then((m) => m.FavoritesPage),
+  },
 ];
