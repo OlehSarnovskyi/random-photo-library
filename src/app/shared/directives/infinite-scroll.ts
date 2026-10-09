@@ -12,9 +12,9 @@ import { Directive, effect, ElementRef, inject, input, output } from '@angular/c
 @Directive({ selector: '[appInfiniteScroll]' })
 export class InfiniteScroll {
   /** Pauses observing, e.g. while a batch is loading or after an error. */
-  readonly disabled = input(false, { alias: 'infiniteScrollDisabled' });
+  readonly infiniteScrollDisabled = input(false);
   /** How far below the viewport loading should start, as a CSS length. */
-  readonly distance = input('600px', { alias: 'infiniteScrollDistance' });
+  readonly infiniteScrollDistance = input('600px');
 
   readonly scrolled = output<void>();
 
@@ -22,7 +22,7 @@ export class InfiniteScroll {
 
   constructor() {
     effect((onCleanup) => {
-      if (this.disabled() || typeof IntersectionObserver === 'undefined') {
+      if (this.infiniteScrollDisabled() || typeof IntersectionObserver === 'undefined') {
         return;
       }
       const observer = new IntersectionObserver(
@@ -31,7 +31,7 @@ export class InfiniteScroll {
             this.scrolled.emit();
           }
         },
-        { rootMargin: `0px 0px ${this.distance()} 0px` },
+        { rootMargin: `0px 0px ${this.infiniteScrollDistance()} 0px` },
       );
       observer.observe(this.host.nativeElement);
       onCleanup(() => observer.disconnect());
